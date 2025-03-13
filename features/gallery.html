@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Dark Art Store</title>
+    <link rel="stylesheet" href="../styles.css"> <!-- Correct path to CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">Dark Art Store</div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li> <!-- Correct path to main page -->
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#description">Stories</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="nav-support">Support</a>
+                <a href="#" class="nav-signin">Sign In</a>
+                <a href="#" class="nav-getstarted">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2>Gallery</h2>
+            <div class="gallery-grid">
+                <!-- Paintings will be dynamically added here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-image" src="" alt="Full Image">
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Dark Art Store | All rights reserved.</p>
+    </footer>
+
+    <script src="../script.js"></script> <!-- Correct path to JavaScript -->
+</body>
+</html>
