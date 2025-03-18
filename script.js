@@ -78,13 +78,15 @@ document.addEventListener('DOMContentLoaded', () => {
         card.classList.add('accessory-card');
         card.innerHTML = `
             <img src="${accessory.image}" alt="${accessory.title}" class="accessory-image" loading="lazy">
-            <h3 class="accessory-title">${accessory.title}</h3>
-            <p class="accessory-price">
-                <span class="original-price">$${accessory.originalPrice}</span>
-                <span class="discount-price">$${accessory.discountPrice}</span>
-            </p>
-            <p class="accessory-desc">${accessory.description}</p>
-            <button class="add-to-cart" data-id="${accessory.id}">Add to Cart</button>
+            <div class="accessory-info">
+                <h3 class="accessory-title">${accessory.title}</h3>
+                <p class="accessory-price">
+                    <span class="original-price">$${accessory.originalPrice}</span>
+                    <span class="discount-price">$${accessory.discountPrice}</span>
+                </p>
+                <p class="accessory-desc">${accessory.description}</p>
+                <button class="add-to-cart" data-id="${accessory.id}">Add to Cart</button>
+            </div>
         `;
         accessoriesGrid.appendChild(card);
 
