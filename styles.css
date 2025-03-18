@@ -970,3 +970,78 @@ footer p {
 .nav-links a, .nav-actions a {
     font-size: 14px; /* Adjust the font size as needed */
 }
+
+/* Authentication Section */
+.auth-section {
+    padding: 100px 20px;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    text-align: center;
+}
+
+.auth-section h2 {
+    font-size: 3rem;
+    margin-bottom: 40px;
+}
+
+.auth-form {
+    max-width: 400px;
+    margin: 0 auto;
+    background: #2a2a2a;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background: #3a3a3a;
+    color: #ffffff;
+}
+
+.auth-button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #ff4500, #e63900);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(255, 69, 0, 0.4);
+}
+
+.auth-switch {
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+.auth-switch a {
+    color: #ff4500;
+    text-decoration: none;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}

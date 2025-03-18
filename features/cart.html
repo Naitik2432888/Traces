@@ -61,5 +61,15 @@
     </footer>
 
     <script src="cart.js"></script>
+    <script>
+        document.querySelector('.checkout-btn').addEventListener('click', () => {
+            const isLoggedIn = false; // Replace with actual login check
+            if (!isLoggedIn) {
+                window.location.href = 'signin.html'; // Redirect to login/signup page
+            } else {
+                alert('Proceeding to checkout...');
+            }
+        });
+    </script>
 </body>
 </html>

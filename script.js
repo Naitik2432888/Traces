@@ -202,3 +202,11 @@ $('.close')?.addEventListener('click', () => {
 $('.back-to-top')?.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+document.querySelector('.nav-signin').addEventListener('click', () => {
+    window.location.href = 'features/signin.html'; // Redirect to sign-in page
+});
+
+document.querySelector('.nav-getstarted').addEventListener('click', () => {
+    window.location.href = 'features/signup.html'; // Redirect to sign-up page
+});
