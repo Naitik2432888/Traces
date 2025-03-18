@@ -15,15 +15,15 @@
             <ul class="nav-links">
                 <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
                 <li><a href="gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
-                <li><a href="#description"><i class="fas fa-book"></i> Stories</a></li>
-                <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
-                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="stories.html"><i class="fas fa-book"></i> Stories</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
             </ul>
             <div class="nav-actions">
-                <a href="#" class="nav-support"><i class="fas fa-life-ring"></i> Support</a>
-                <a href="#" class="nav-signin"><i class="fas fa-sign-in-alt"></i> Sign In</a>
-                <a href="#" class="nav-getstarted"><i class="fas fa-user-plus"></i> Sign up</a>
-                <a href="cart.html" class="nav-cart">
+                <a href="support.html" class="nav-support"><i class="fas fa-life-ring"></i> Support</a>
+                <a href="signin.html" class="nav-signin"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+                <a href="signup.html" class="nav-getstarted"><i class="fas fa-user-plus"></i> Sign up</a>
+                <a href="../cart.html" class="nav-cart">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-count">0</span>
                 </a>
@@ -61,14 +61,18 @@
     </footer>
 
     <script src="cart.js"></script>
+    <script src="../script.js"></script> <!-- Include the main script -->
     <script>
-        document.querySelector('.checkout-btn').addEventListener('click', () => {
-            const isLoggedIn = false; // Replace with actual login check
-            if (!isLoggedIn) {
-                window.location.href = 'signin.html'; // Redirect to login/signup page
-            } else {
-                alert('Proceeding to checkout...');
-            }
+        document.querySelector('.checkout-btn').addEventListener('click', function() {
+            const cartItems = document.querySelectorAll('.cart-items tr');
+            let cartDetails = 'Cart Details:\n';
+            cartItems.forEach(item => {
+                const itemName = item.querySelector('td:nth-child(1)').innerText;
+                const itemPrice = item.querySelector('td:nth-child(2)').innerText;
+                cartDetails += `Item: ${itemName}, Price: ${itemPrice}\n`;
+            });
+            const whatsappUrl = `https://wa.me/918303034519?text=${encodeURIComponent(cartDetails)}`;
+            window.location.href = whatsappUrl;
         });
     </script>
 </body>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up - Traces</title>
+    <title>Stories - Traces</title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -32,35 +32,12 @@
         </div>
     </nav>
 
-    <!-- Sign Up Section -->
-    <section class="auth-section">
+    <!-- Stories Section -->
+    <section class="stories-section">
         <div class="container">
-            <h2>Sign Up</h2>
-            <form class="auth-form" id="signup-form">
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="mobile">Mobile Number:</label>
-                    <input type="text" id="mobile" name="mobile" required>
-                </div>
-                <div class="form-group">
-                    <button type="button" id="send-otp" class="auth-button">Send OTP</button>
-                </div>
-                <div class="form-group">
-                    <label for="otp">OTP:</label>
-                    <input type="text" id="otp" name="otp" required>
-                </div>
-                <div class="form-group">
-                    <label for="captcha">Captcha:</label>
-                    <div id="captcha-container"></div>
-                    <button type="button" id="refresh-captcha" class="refresh-captcha-button"><i class="fas fa-sync-alt"></i></button>
-                    <input type="text" id="captcha" name="captcha" required>
-                </div>
-                <button type="submit" class="auth-button">Sign Up</button>
-                <p class="auth-switch">Already have an account? <a href="signin.html">Sign in</a></p>
-            </form>
+            <h2>Stories</h2>
+            <p>Explore the stories behind our unique pieces of art.</p>
+            <!-- Add your stories content here -->
         </div>
     </section>
 
@@ -68,8 +45,6 @@
     <footer>
         <p>&copy; 2025 Traces | All rights reserved.</p>
     </footer>
-    <script src="../otp-captcha.js"></script>
-    <script src="../signup.js"></script>
     <script src="../script.js"></script> <!-- Include the main script -->
 </body>
 </html>

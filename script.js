@@ -35,9 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Sample accessory data
     const accessories = [
-        { id: 1, image: 'Assets/images/gothic-necklace.jpg', title: 'Gothic Necklace', originalPrice: 50, discountPrice: 35, description: 'A handmade piece with dark elegance.', discount: '$15' },
-        { id: 2, image: 'Assets/images/skull-ring.jpg', title: 'Skull Ring', originalPrice: 40, discountPrice: 28, description: 'Bold and mysterious, crafted with care.', discount: '$12' },
-        { id: 3, image: 'Assets/images/raven-earrings.jpg', title: 'Raven Earrings', originalPrice: 30, discountPrice: 20, description: 'Perfect for the shadowy soul.', discount: '$10' }
+        { id: 1, image: 'Assets/images/gothic-necklace.jpg', title: 'Gothic Necklace', originalPrice: 50, discountPrice: 35, description: 'A handmade piece with dark elegance.' },
+        { id: 2, image: 'Assets/images/skull-ring.jpg', title: 'Skull Ring', originalPrice: 40, discountPrice: 28, description: 'Bold and mysterious, crafted with care.' },
+        { id: 3, image: 'Assets/images/raven-earrings.jpg', title: 'Raven Earrings', originalPrice: 30, discountPrice: 20, description: 'Perfect for the shadowy soul.' }
     ];
 
     // Update cart count in navbar
@@ -48,28 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             console.warn('Cart count element not found!');
         }
-    };
-
-    // Fly-to-cart animation for discount badge
-    const animateBadgeToCart = (e, discount) => {
-        const badge = document.createElement('div');
-        badge.classList.add('discount-badge');
-        badge.textContent = `-${discount}`;
-        badge.style.left = `${e.clientX}px`;
-        badge.style.top = `${e.clientY}px`;
-        document.body.appendChild(badge);
-
-        const cartRect = cartIcon.getBoundingClientRect();
-        const badgeRect = badge.getBoundingClientRect();
-        const deltaX = cartRect.left - badgeRect.left;
-        const deltaY = cartRect.top - badgeRect.top;
-
-        badge.style.transition = 'all 0.8s ease';
-        requestAnimationFrame(() => {
-            badge.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(0.5)`;
-            badge.style.opacity = '0';
-        });
-        setTimeout(() => badge.remove(), 800);
     };
 
     // Add accessory card to grid
@@ -100,7 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             localStorage.setItem('cart', JSON.stringify(cart));
             updateCartCount();
-            animateBadgeToCart(e, accessory.discount);
             cartIcon.classList.add('added');
             setTimeout(() => cartIcon.classList.remove('added'), 500);
         });
@@ -173,6 +150,40 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+
+    // Check if user is logged in and set a timeout for 30 minutes
+    const checkLoginTimeout = () => {
+        const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+        const loginTime = localStorage.getItem('loginTime');
+        const currentTime = new Date().getTime();
+
+        if (loggedInUser && loginTime && (currentTime - loginTime < 30 * 60 * 1000)) {
+            // User is logged in and within 30 minutes
+            updateUserNav();
+        } else {
+            // Clear login data if more than 30 minutes have passed
+            localStorage.removeItem('loggedInUser');
+            localStorage.removeItem('loginTime');
+        }
+    };
+
+    checkLoginTimeout();
+
+    // Display logged-in user's name
+    const updateUserNav = () => {
+        const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+        if (loggedInUser) {
+            document.querySelector('.nav-signin').style.display = 'none';
+            document.querySelector('.nav-getstarted').style.display = 'none';
+
+            const userNameElement = document.createElement('span');
+            userNameElement.classList.add('nav-username');
+            userNameElement.textContent = `Hello, ${loggedInUser.name}`;
+            document.querySelector('.nav-actions').appendChild(userNameElement);
+        }
+    };
+
+    updateUserNav();
 });
 
 // Enhanced Navbar, Lightbox, and Back-to-Top (from previous code)
@@ -203,10 +214,18 @@ $('.back-to-top')?.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
+document.querySelector('.nav-support').addEventListener('click', () => {
+    window.location.href = 'features/support.html'; // Redirect to support page
+});
+
 document.querySelector('.nav-signin').addEventListener('click', () => {
     window.location.href = 'features/signin.html'; // Redirect to sign-in page
 });
 
 document.querySelector('.nav-getstarted').addEventListener('click', () => {
     window.location.href = 'features/signup.html'; // Redirect to sign-up page
+});
+
+document.querySelector('.nav-cart').addEventListener('click', () => {
+    window.location.href = 'features/cart.html'; // Redirect to cart page
 });

@@ -189,6 +189,15 @@ a:focus, button:focus, .shop-button:focus {
     font-size: 12px;
 }
 
+.nav-username {
+    color: #d1d1d1;
+    font-size: 1.1rem;
+    padding: 8px 15px;
+    border-radius: 25px;
+    background-color: #ff4500;
+    color: #121212;
+}
+
 /* Hero Section */
 .hero {
     height: 100vh;
@@ -415,29 +424,6 @@ a:focus, button:focus, .shop-button:focus {
     transform: scale(1.1);
 }
 
-.lightbox-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #fff;
-    font-size: 50px;
-    cursor: pointer;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.lightbox-nav:hover {
-    color: #ff4500;
-    transform: scale(1.1);
-}
-
-.lightbox-nav.prev {
-    left: 30px;
-}
-
-.lightbox-nav.next {
-    right: 30px;
-}
-
 @keyframes fadeInModal {
     0% { opacity: 0; }
     100% { opacity: 1; }
@@ -590,24 +576,12 @@ a:focus, button:focus, .shop-button:focus {
 }
 
 .discount-badge {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background: #ff4d4d;
-    color: #fff;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.95rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-    z-index: 10;
-    animation: pulseBadge 2s infinite;
+    display: none; /* Remove the discount badge */
 }
 
-@keyframes pulseBadge {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+@keyframes bounceBadge {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 .add-to-cart {
@@ -657,7 +631,14 @@ a:focus, button:focus, .shop-button:focus {
 }
 
 .cart-icon.added {
-    animation: bounce 0.5s ease;
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
 }
 
 .cart-count {
@@ -1044,4 +1025,50 @@ footer p {
 
 .auth-switch a:hover {
     text-decoration: underline;
+}
+
+#captcha-container {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+#refresh-captcha {
+    margin-top: 10px;
+    background: #ff4500;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#refresh-captcha:hover {
+    background: #e63900;
+    transform: scale(1.05);
+}
+
+.refresh-captcha-button {
+    background: none;
+    border: none;
+    color: #ff4500;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.refresh-captcha-button:hover {
+    color: #e63900;
+    transform: scale(1.2);
+}
+
+.preview {
+    display: none;
 }
